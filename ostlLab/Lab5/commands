@@ -1,0 +1,39 @@
+- gedit helloWorld.c
+
+#Write the code inside helloWorld.c
+
+- git init
+
+- xdg-open . #to open file explorer 
+
+#enable hidden files top right to see the .git folder
+
+- git status
+
+- git add .
+
+- git commit -m "First Commit"
+
+#modify the program as required 
+
+- git diff 
+
+- git add .
+
+- git commit -m "Second Commit"
+
+- git log
+
+#modify the program as required 
+
+- git status 
+
+- git checkout -3 helloWorld.c
+
+- git status
+
+- git log 
+
+#get the commit id from the first commit 
+
+- git show [commit id]

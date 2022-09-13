@@ -1,0 +1,84 @@
+$date
+	Mon Sep 12 14:29:17 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module decompFA_tb $end
+$var wire 1 ! s $end
+$var wire 1 " cout $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$var reg 1 % cin $end
+$scope module dfa $end
+$var wire 1 # a $end
+$var wire 1 $ b $end
+$var wire 1 % cin $end
+$var wire 1 " cout $end
+$var wire 1 & s1 $end
+$var wire 1 ! s $end
+$var wire 1 ' c2 $end
+$var wire 1 ( c1 $end
+$scope module stage1 $end
+$var wire 1 # a $end
+$var wire 1 $ b $end
+$var wire 1 ( cout $end
+$var wire 1 & s $end
+$upscope $end
+$scope module stage2 $end
+$var wire 1 & a $end
+$var wire 1 % b $end
+$var wire 1 ' cout $end
+$var wire 1 ! s $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#20
+1!
+1%
+#40
+1&
+0%
+1$
+#60
+1"
+0!
+1'
+1%
+#80
+0"
+1!
+0'
+0%
+0$
+1#
+#100
+1"
+0!
+1'
+1%
+#120
+0'
+0&
+1(
+0%
+1$
+#140
+1!
+1%
+#160
