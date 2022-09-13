@@ -33,12 +33,14 @@ void read(STUDENT *stds,int n) {
         printf("Enter the day of DOB ");
         scanf("%d",&((stds+i)->d->day));
         printf("Enter the month of DOB ");
-        scanf("%s",temp);
-        (stds+i)->d->month = (char *) malloc (strlen(temp) * sizeof(char));
-        strcpy((stds+i)->d->month,temp);
+        scanf("%s[^\n]",temp);
+        ((stds+i)->d->month) = (char *) malloc (strlen(temp) * sizeof(char));
+        strcpy(((stds+i)->d->month),temp);
+        fflush(stdin);
         printf("Enter the year of DOB ");
         scanf("%d",&((stds+i)->d->year));
-        printf("Enter the regstration number ");
+        fflush(stdin);
+        printf("Enter the registration number ");
         scanf("%d",&((stds+i)->info.reg_no));
         printf("Enter your name ");
         scanf("%s",temp);
@@ -58,7 +60,7 @@ void display(STUDENT *stds,int n) {
     int i;
     for(i=0;i<n;i++) {
         printf("\nDetails for student number %d ",(i+1));
-        printf("The name is : %s\nThe registration number is: %d",(stds+i)->info.name,(stds+i)->info.reg_no);
+        printf("The name is : %s\nThe registration number is: %d\nCollege Name: %s\nUniversity Name: %s\nThe DOB is: %d/%d/%d\nAddress: %s",(stds+i)->info.name,(stds+i)->info.reg_no,(stds+i)->clg.college_name,(stds+i)->clg.university_name,(stds+i)->d->day,(stds+i)->d->month,(stds+i)->d->year,(stds+i)->info.address);
     }
 }
 
@@ -71,6 +73,7 @@ int main() {
     stds = (STUDENT *) malloc (n*sizeof(STUDENT *));
 
     read(stds,n);
+    display(stds,n);
 
     return 0;
 }

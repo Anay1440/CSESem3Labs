@@ -8,19 +8,23 @@ typedef struct {
     double cgpa;
 } Student;
 
-Student read() {
-    Student std;
-    printf("Enter student firstname ");
-    scanf("%s",std.name);
-    printf("Enter roll number ");
-    scanf("%d",&(std.rno));
-    printf("Enter CGPA ");
-    scanf("%lf",&(std.cgpa));
-    return std;
+void read(Student *stds,int n) {
+    int i;
+    for(i=0;i<n;i++) {
+        printf("Enter student firstname ");
+        scanf("%s",(stds+i)->name);
+        printf("Enter roll number ");
+        scanf("%d",&((stds+i)->rno));
+        printf("Enter CGPA ");
+        scanf("%lf",&((stds+i)->cgpa));
+    }
 }
 
-void display(Student std) {
-    printf("\nName of student: %s\nRoll Number : %d\nCGPA : %lf\n",std.name,std.rno,std.cgpa);
+void display(Student *stds,int n) {
+    int i;
+    for(i=0;i<n;i++) {
+        printf("\nName of student: %s\nRoll Number : %d\nCGPA : %lf\n",(stds+i)->name,(stds+i)->rno,(stds+i)->cgpa);
+    }
 }
 
 void sort(Student *st,int n) {
@@ -43,24 +47,21 @@ int main() {
     printf("Enter the number of students ");
     scanf("%d",&n);
 
-    Student *st = (Student *) malloc (n*sizeof(Student *));
-    st[0] = read();
+    Student *st ;
+    st = (Student *) malloc (n*sizeof(Student *));
+
+    read(st,n);
+
+    printf("%d",st->rno);
 
     printf("\nThe details of the first student are: ");
-    display(st[0]);
-
-    for (i=1;i<n;i++) {
-        st[i] = read();
-    }
+    printf("\nName of student: %s\nRoll Number : %d\nCGPA : %lf\n",st[0].name,st[0].rno,st[0].cgpa);
 
     sort(st,n);
 
     printf("\nDetails of students sorted in ascending order:\n");
 
-    for(i=0;i<n;i++) {
-        printf("\nStudent number %d ",(i+1));
-        display(st[i]);
-    }
+    display(st,n);
 
     return 0;
 }
