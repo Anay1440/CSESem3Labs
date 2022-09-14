@@ -58,6 +58,7 @@ void read(STUDENT *stds,int n) {
         printf("Enter college name ");
         scanf("%s",temp);
         (stds+i)->clg.college_name = (char *) malloc (strlen(temp) * sizeof(char));
+        strcpy((stds+i)->clg.college_name,temp);
         fflush(stdin);
         printf("Enter university name ");
         scanf("%s",((stds+i)->clg.university_name));
