@@ -1,9 +1,11 @@
 import java.util.Scanner;
+import java.util.GregorianCalendar;
 
 class Student {
     int regno;
     String fName;
-    String DOJ;
+    // String DOJ;
+    GregorianCalendar DOJ;
     short sem;
     float gpa,cgpa;
     static int count=1;
@@ -27,13 +29,16 @@ class Student {
         return (DOJ.substring(ind+1,DOJ.length()));
     }
 
-    Student(String name,String DateOJ,short semester,float gpavg,float cgpavg) {
-        String y = calcYear(DateOJ);
+    Student(String name,int d,int m, int y,short semester,float gpavg,float cgpavg) {
+        GregorianCalendar gcal = new GregorianCalendar(y,m,d);
+        // String y = calcYear(DateOJ);
+        String st = Integer.toString(gcal.get(1));
+        String yst = st.substring(2,4);
         String n = Integer.toString(count);
-        String regnumString = y+n;
+        String regnumString = yst+n;
         regno = Integer.parseInt(regnumString);
         fName = name;
-        DOJ = DateOJ;
+        DOJ = gcal;
         sem=semester;
         gpa=gpavg;
         cgpa=cgpavg;
@@ -41,11 +46,12 @@ class Student {
     }
 
     void display() {
-        System.out.println("\nName of student: "+fName+"\nRegistration Number: "+regno+"\nDate of joining: "+DOJ+"\nSemester: "+sem+"\nGPA: "+gpa+"\nCGPA: "+cgpa);
+        System.out.println("\nName of student: "+fName+"\nRegistration Number: "+regno+"\nDate of joining: "+DOJ.get(5)+"/"+DOJ.get(2)+"/"+DOJ.get(1)+"\nSemester: "+sem+"\nGPA: "+gpa+"\nCGPA: "+cgpa);
+        // System.out.println("\nName of student: "+fName+"\nRegistration Number: "+regno+"\nDate of joining: "+DOJ+"\nSemester: "+sem+"\nGPA: "+gpa+"\nCGPA: "+cgpa);
     }
 }
 
-class script01 {
+class Q1RegistrationNumStudent {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of students. (Minimum 5) ");
@@ -56,8 +62,14 @@ class script01 {
             System.out.println("\nEnter details for student number "+(i+1));
             System.out.print("Enter your name ");
             String fName = sc.nextLine();
-            System.out.print("Enter date of joining in the format dd/mm/yy ");
-            String DateOJ = sc.nextLine();
+            // System.out.print("Enter date of joining in the format dd/mm/yy ");
+            // String DateOJ = sc.nextLine();
+            System.out.print("Enter day of DOJ ");
+            int d = sc.nextInt();
+            System.out.print("Enter month of DOJ ");
+            int m = sc.nextInt();
+            System.out.print("Enter year of DOJ ");
+            int y = sc.nextInt();
             System.out.print("Enter your semester ");
             short semester = sc.nextShort();
             System.out.print("Enter your gpa ");
@@ -66,7 +78,7 @@ class script01 {
             float cgpavg = sc.nextFloat();
             sc.nextLine();
 
-            stds[i] = new Student(fName,DateOJ,semester,gpavg,cgpavg);
+            stds[i] = new Student(fName,d,m,y,semester,gpavg,cgpavg);
         }
 
         System.out.println("\nDisplaying details of all students:\n");

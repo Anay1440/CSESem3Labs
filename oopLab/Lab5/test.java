@@ -17,9 +17,30 @@ class test {
         // System.out.println(year);
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter your name ");
-        String fName = sc.nextLine();
-        System.out.print("Enter date of joining in the format dd/mm/yy ");
-        String DateOJ = sc.nextLine();
-        System.out.println(DateOJ);
+        String name = sc.nextLine();
+        int flag=0;
+        String temp="";
+        char initial=' ';
+        String out ="";
+
+        for(int i=0;i<name.length();i++) {
+            if ( Character.isUpperCase(name.charAt(i))) {
+                flag=1;
+                initial=name.charAt(i);
+            }
+            if (flag == 1) {
+                temp = temp + name.charAt(i);
+            }
+            if ( name.charAt(i) == ' ') {
+                flag = 0;
+                out = out + initial + ". ";
+                temp="";
+            }
+            if (i == name.length()-1) {
+                out = out + temp;
+            }
+        }
+
+        System.out.println("Modified string: "+out);
     }
 }
