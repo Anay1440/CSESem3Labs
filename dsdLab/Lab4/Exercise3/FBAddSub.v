@@ -1,4 +1,4 @@
-
+/*
 module FBAddSub(x0,x1,x2,x3,y0,y1,y2,y3,k,s0,s1,s2,s3,cout);
 	input x0,x1,x2,x3,y0,y1,y2,y3,k;
 	output s0,s1,s2,s3,cout;
@@ -15,18 +15,32 @@ module FBAddSub(x0,x1,x2,x3,y0,y1,y2,y3,k,s0,s1,s2,s3,cout);
 	
 	
 endmodule 
+*/
 
-/*
-module FBAddSub(x [3:0], y [3:0], k,s [3:0], cout);
-	input x [3:0], y [3:0], k;
-	output [3:0] s, cout;
+module FBAddSub(x, y, k,s, cout);
+	input [3:0] x, y;
+	input k;
+	output [3:0] s;
+	output cout;
+	wire [3:0] yk;
+	wire [3:1] c;
+	/*
+	assign yk[0] = y[0]^k;
+	assign yk[1] = y[1]^k;
+	assign yk[2] = y[2]^k;
+	assign yk[3] = y[3]^k;
+	*/
 	
-	assign yk = {(y[0]^k),(y[1]^k),(y[2]^k),(y[3]^k)};
+	xor(yk[0],y[0],k);
+	xor(yk[1],y[1],k);
+	xor(yk[2],y[2],k);
+	xor(yk[3],y[3],k);
 	
-	fa stage0(x[0],yk[0],k,s[0],c1);
-	fa stage1(x[1],yk[1],c1,s[1],c2);
-	fa stage2(x[2],yk[2],c2,s[2],c3);
-	fa stage3(x[3],yk[3],c3,s[3],cout);
+	fa stage0(x[0],yk[0],k,s[0],c[1]);
+	fa stage1(x[1],yk[1],c[1],s[1],c[2]);
+	fa stage2(x[2],yk[2],c[2],s[2],c[3]);
+	fa stage3(x[3],yk[3],c[3],s[3],cout);
+endmodule
 	
 module fa(a,b,cin,s,cout);
 	input a,b,cin;
@@ -35,4 +49,4 @@ module fa(a,b,cin,s,cout);
 	assign s = a ^ b ^ cin;
 	assign cout = (a & b) | (a & cin) | (b & cin);
 
-endmodule */
+endmodule 
