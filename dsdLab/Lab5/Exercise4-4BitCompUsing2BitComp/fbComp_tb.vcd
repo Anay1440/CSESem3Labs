@@ -1,0 +1,108 @@
+$date
+	Mon Sep 19 20:52:48 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module fbComp_tb $end
+$var wire 1 ! lt $end
+$var wire 1 " gt $end
+$var wire 1 # eq $end
+$var reg 4 $ x [3:0] $end
+$var reg 4 % y [3:0] $end
+$scope module fbComp $end
+$var wire 1 # eq $end
+$var wire 1 " gt $end
+$var wire 1 ! lt $end
+$var wire 4 & x [3:0] $end
+$var wire 4 ' y [3:0] $end
+$var wire 1 ( lt2 $end
+$var wire 1 ) lt1 $end
+$var wire 1 * gt2 $end
+$var wire 1 + gt1 $end
+$var wire 1 , eq2 $end
+$var wire 1 - eq1 $end
+$scope module stage0 $end
+$var wire 1 - eq $end
+$var wire 1 + gt $end
+$var wire 1 ) lt $end
+$var wire 2 . x [1:0] $end
+$var wire 2 / y [1:0] $end
+$upscope $end
+$scope module stage1 $end
+$var wire 1 , eq $end
+$var wire 1 * gt $end
+$var wire 1 ( lt $end
+$var wire 2 0 x [1:0] $end
+$var wire 2 1 y [1:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1 1
+b10 0
+b10 /
+b10 .
+1-
+0,
+0+
+1*
+0)
+0(
+b110 '
+b1010 &
+b110 %
+b1010 $
+0#
+1"
+0!
+$end
+#20
+0!
+0-
+1)
+0,
+b1 /
+b10 1
+b0 .
+b11 0
+b1001 %
+b1001 '
+b1100 $
+b1100 &
+#40
+1#
+0"
+1-
+0)
+0*
+1,
+0+
+b11 /
+b1 1
+b11 .
+b1 0
+b111 %
+b111 '
+b111 $
+b111 &
+#60
+1!
+0#
+1,
+1)
+0-
+b10 /
+b0 1
+b1 .
+b0 0
+b10 %
+b10 '
+b1 $
+b1 &
+#80
