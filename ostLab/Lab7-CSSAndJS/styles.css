@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(70, 69, 67);
+    color: azure;
+}
+
+.container {
+    margin: 5px auto;
+    padding: 5px auto;
+}
+
+#clock {
+    text-align: center;
+}

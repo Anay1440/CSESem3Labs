@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Lab7</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="heading">Heading 1</h1>
+        <p>Hello. This is my webpage for Lab 7 Exercises.</p>
+        <p>Tip. Check the console for the X,Y of the heading</p>
+        <div id="clock" onload="curTime()">
+            
+        </div>
+    </div>
+
+    <script>
+        const heading = document.getElementById("heading");
+        const rect = heading.getBoundingClientRect();
+        console.log(rect.left,rect.top)
+    </script>
+    <script src="scripts/clock.js"></script>
+</body>
+</html>
