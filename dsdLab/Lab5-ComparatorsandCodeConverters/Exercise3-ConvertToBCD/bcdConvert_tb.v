@@ -12,7 +12,7 @@ begin
     $dumpvars(0,bcdConvert_tb);
 
     x = 4'b1010;#20;
-    x = 4'b1100;#20;
+    x = 4'b0110;#20;
     $display("Test Complete");
 end
 endmodule
