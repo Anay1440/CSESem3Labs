@@ -1,0 +1,74 @@
+$date
+	Sun Oct  2 07:29:22 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module fiveBComp_tb $end
+$var wire 1 ! lt $end
+$var wire 1 " gt $end
+$var wire 1 # eq $end
+$var reg 5 $ x [4:0] $end
+$var reg 5 % y [4:0] $end
+$scope module fiveBComp $end
+$var wire 5 & a [4:0] $end
+$var wire 5 ' b [4:0] $end
+$var wire 1 # eq $end
+$var wire 1 " gt $end
+$var wire 1 ! lt $end
+$var wire 1 ( t1 $end
+$var wire 1 ) t10 $end
+$var wire 1 * t2 $end
+$var wire 1 + t3 $end
+$var wire 1 , t4 $end
+$var wire 1 - t5 $end
+$var wire 1 . t6 $end
+$var wire 1 / t7 $end
+$var wire 1 0 t8 $end
+$var wire 1 1 t9 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+01
+00
+0/
+1.
+1-
+1,
+1+
+0*
+0)
+0(
+b1100 '
+b10100 &
+b1100 %
+b10100 $
+0#
+1"
+0!
+$end
+#20
+1!
+0"
+0,
+0.
+b10010 %
+b10010 '
+b1000 $
+b1000 &
+#40
+0!
+1#
+1*
+1(
+1,
+b11011 %
+b11011 '
+b11011 $
+b11011 &
+#60
