@@ -6,7 +6,9 @@ function curTime() {
 
     const time = hrs + " : " + mins + " : " + sec;
 
-    document.getElementById("clock").innerText = time;
+    var inText = "CLOCK\n\n" 
+
+    document.getElementById("clock").innerText = inText+time;
 
     const t = setTimeout(function() {
         curTime()
