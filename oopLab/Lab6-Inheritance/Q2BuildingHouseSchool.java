@@ -1,5 +1,4 @@
 import java.util.Scanner;
-package com.course.stucture;
 
 class Building {
     Scanner sc = new Scanner(System.in);
