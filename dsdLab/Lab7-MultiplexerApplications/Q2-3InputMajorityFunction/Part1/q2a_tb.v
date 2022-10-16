@@ -1,16 +1,16 @@
 `timescale 1ns/1ns
-`include "q1a.v"
+`include "q2a.v"
 
-module q1a_tb();
+module q2a_tb();
 reg [2:0] w;
 wire f;
 
-q1a q(w,f);
+q2a q(w,f);
 initial
 begin 
 
-    $dumpfile("q1a_tb.vcd");
-    $dumpvars(0,q1a_tb);
+    $dumpfile("q2a_tb.vcd");
+    $dumpvars(0,q2a_tb);
 
     w = 3'b000; #20;
     w = 3'b001; #20;

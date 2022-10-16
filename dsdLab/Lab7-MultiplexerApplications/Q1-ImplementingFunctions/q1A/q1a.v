@@ -1,6 +1,6 @@
 module q1a(a,b,c,d,f);
     input a,b,c,d;
-    output reg f;
+    output f;
     wire [2:0] h;
     assign h = {a,b,c};
 
@@ -9,7 +9,7 @@ module q1a(a,b,c,d,f);
 endmodule
 
 module MUX8to1(Notd,s,f);
-    input d;
+    input Notd;
     input [2:0] s;
     output reg f;
 
