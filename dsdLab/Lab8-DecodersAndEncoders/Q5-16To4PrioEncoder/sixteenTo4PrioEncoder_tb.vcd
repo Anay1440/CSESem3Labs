@@ -1,0 +1,49 @@
+$date
+	Mon Oct 17 15:39:46 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module sixteenTo4PrioEncoder_tb $end
+$var wire 1 ! z $end
+$var wire 4 " y [3:0] $end
+$var reg 16 # w [15:0] $end
+$scope module q $end
+$var wire 16 $ w [15:0] $end
+$var reg 4 % y [3:0] $end
+$var reg 1 ! z $end
+$var integer 32 & k [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11111111111111111111111111111111 &
+b0 %
+b1 $
+b1 #
+b0 "
+1!
+$end
+#20
+b1111 "
+b1111 %
+b11111111111111111111111111111111 &
+b1000000000000000 #
+b1000000000000000 $
+#40
+b10 "
+b10 %
+b11111111111111111111111111111111 &
+b100 #
+b100 $
+#60
+b1101 "
+b1101 %
+b11111111111111111111111111111111 &
+b10000000000000 #
+b10000000000000 $
+#80

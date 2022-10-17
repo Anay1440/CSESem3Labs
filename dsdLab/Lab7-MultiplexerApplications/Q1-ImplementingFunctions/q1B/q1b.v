@@ -3,7 +3,7 @@ module q1b(a,b,c,d,f);
     output f;
 
     wire [1:0] h;
-    assign h = {b,a};
+    assign h = {a,b};
 
     MUX4to1 stage0(h,c,d,f);
 
