@@ -31,3 +31,36 @@ body {
     width:100%;
     display: block;
 }
+
+.inpt {
+    width: 60%; margin: auto;
+}
+
+.colorShow {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+#red {
+    background-color: red;
+}
+  
+#green {
+    background-color: green;
+}
+  
+#blue {
+    background-color: blue;
+}
+
+div.input input {
+    height: 30px;
+    width: 60px;
+    font-size: 30px;
+    color: seashell;
+    text-align: center;
+    opacity: 0.7;
+    border: none;
+    border-radius: 4px;
+}

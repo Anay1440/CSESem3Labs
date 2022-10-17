@@ -12,6 +12,7 @@
         <h1 id="heading">Heading 1</h1>
         <p>Hello. This is my webpage for Lab 7 Exercises.</p>
         <p>Tip. Check the console for the X,Y of the heading</p>
+        <a href="bouncingBall.html" style="text-align: center; color: azure;" target="_blank">Bouncing Ball</a>
         <div id="clock">
             
         </div><br>
@@ -19,12 +20,19 @@
             <p>Wishing you a happy half hour !!</p>
             <button id="dialog1hide">Close</button>
         </dialog>
-        <div style="display: flex; float: inline-start; width: 45%; margin:auto;">
+        <div style="width: 45%; margin:auto;">
             <canvas id="canvas1"></canvas>
+        </div><br>
+        <div style="width: 60%; margin:auto;">
+            <div class="colorShow"></div>
+            <div class="inpt">
+                <input type="number" id="red">
+                <input type="number" id="green">
+                <input type="number" id="blue">
+            </div>
+            <h1 style="margin: auto; text-align: center;">--Color picker--</h1>
         </div>
-        <div style="display: flex; float: inline-end; width: 45%; margin:auto;">
-            <canvas id="canvas2"></canvas>
-        </div>
+        
     </div>
 
     <script>
@@ -34,6 +42,8 @@
     </script>
     <script src="scripts/clock.js"></script>
     <script src="scripts/dialog.js"></script>
+    <script src="scripts/colorPicker.js"></script>
     <script src="scripts/rain.js"></script>
+
 </body>
 </html>
