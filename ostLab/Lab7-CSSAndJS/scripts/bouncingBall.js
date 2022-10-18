@@ -18,23 +18,17 @@ function render() {
  
         // Creating a circle
         context.beginPath();
-        context.strokeStyle = "black";
+        context.strokeStyle = "white";
         context.arc(x, y, radius, 0, Math.PI * 2, false);
         context.stroke();
  
         // Conditions so that the ball bounces
         // from the edges
-        if (radius + x > canvasWidth)
-            vx = 0 - vx;
+        if ((radius + x > canvasWidth) || (x - radius <= 0))
+            vx = -vx;
  
-        if (x - radius <= 0)
-            vx = 0 - vx;
- 
-        if (y + radius > canvasHeight)
-            vy = 0 - vy;
- 
-        if (y - radius <= 0)
-            vy = 0 - vy;
+        if ((y + radius > canvasHeight) || (y - radius <= 0))
+            vy = -vy;
  
         x = x + vx;
         y = y + vy;
