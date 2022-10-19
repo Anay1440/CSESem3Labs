@@ -1,9 +1,23 @@
 import java.util.Scanner;
+class StackExceptions extends Exception {
+    private String errorCode;
+    StackExceptions(String err) {
+        errorCode = err;
+    }
+
+    String getCode() {
+        return errorCode;
+    }
+}
+
 class Stack {
     int arr[];
     int tos;
 
     Scanner sc = new Scanner(System.in);
+
+    StackExceptions stackFull = new StackExceptions("Stack Overflow");
+    StackExceptions stackEmpty = new StackExceptions("Stack underflow");
 
     void initialiseTOS() {
         tos=-1;
@@ -12,23 +26,27 @@ class Stack {
         arr = new int[n];
     }
 
-    void push() {
+    void push() throws StackExceptions {
         try {
+            if (tos == arr.length - 1)
+                throw stackFull;
             System.out.print("Enter integer to push ");
             arr[++tos] = sc.nextInt();
         } 
-        catch(ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error. Stack Overflow");
+        catch(StackExceptions e) {
+            System.out.println("Error. "+e.getCode());
             tos-=1;
         }
     }
 
-    int pop() {
+    int pop() throws StackExceptions {
         try {
+            if (tos == -1)
+                throw stackEmpty;
             return arr[(tos--)];
         } 
-        catch(ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error. Stack Underflow");
+        catch(StackExceptions e) {
+            System.out.println("Error. "+e.getCode());
             tos+=1;
             return -1;
         }
@@ -36,7 +54,7 @@ class Stack {
 }
 
 class Q1Stack {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws StackExceptions {
         Scanner sc = new Scanner(System.in);
         Stack s = new Stack();
         s.initialiseTOS();
