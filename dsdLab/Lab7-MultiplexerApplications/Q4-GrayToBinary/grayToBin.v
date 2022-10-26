@@ -3,9 +3,9 @@ module grayToBin(g,b);
     output [3:0] b;
 
     assign b[3] = g[3];
-    assign b[2] = b[3] ^ g[2];
+    MUX4to1 stage2({1'b0,1'b1,1'b1,1'b0},{g[2],b[3]},b[2]);
     MUX4to1 stage0({g[1],~g[1],~g[1],g[1]},{g[3],g[2]},b[1]);
-    assign b[0] = b[1] ^ g[0];
+    MUX4to1 stage1({1'b0,1'b1,1'b1,1'b0},{g[0],b[1]},b[0]);
 
 endmodule
 

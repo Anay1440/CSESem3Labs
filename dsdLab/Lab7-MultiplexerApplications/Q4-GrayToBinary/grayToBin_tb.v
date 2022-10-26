@@ -13,6 +13,7 @@ begin
 
     g = 4'b0011; #20; //desired output is 0010
     g = 4'b0110; #20; //desired output is 0100
+    g = 4'b1011; #20; //desired output is 1101
 
     $display("Test Complete");    
 end
