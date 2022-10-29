@@ -1,5 +1,0 @@
-k-map 
-logic exp and ckt 
-verilog code
-test bench code
-results : WF and TT
