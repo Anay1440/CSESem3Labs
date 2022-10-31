@@ -1,0 +1,84 @@
+$date
+	Mon Oct 31 15:17:17 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module MUX8To1_tb $end
+$var wire 1 ! f $end
+$var reg 3 " s [2:0] $end
+$var reg 8 # w [7:0] $end
+$scope module MUX $end
+$var wire 1 ! f $end
+$var wire 3 $ s [2:0] $end
+$var wire 1 % t1 $end
+$var wire 1 & t2 $end
+$var wire 1 ' t3 $end
+$var wire 1 ( t4 $end
+$var wire 1 ) t5 $end
+$var wire 1 * t6 $end
+$var wire 1 + t7 $end
+$var wire 1 , t8 $end
+$var wire 8 - w [7:0] $end
+$var wire 8 . y [0:7] $end
+$scope module stage0 $end
+$var wire 1 / En $end
+$var wire 3 0 w [2:0] $end
+$var reg 8 1 y [0:7] $end
+$var integer 32 2 k [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1000 2
+b10000000 1
+b0 0
+1/
+b10000000 .
+b10000011 -
+1,
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+b0 $
+b10000011 #
+b0 "
+1!
+$end
+#20
+1%
+0,
+b1 .
+b1 1
+b1000 2
+b111 "
+b111 $
+b111 0
+#40
+0%
+1+
+b1000000 .
+b1000000 1
+b1000 2
+b1 "
+b1 $
+b1 0
+#60
+0!
+0+
+b10000 .
+b10000 1
+b1000 2
+b11 "
+b11 $
+b11 0
+#80
