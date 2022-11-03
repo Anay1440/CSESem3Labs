@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8Q8</title>
+</head>
+<body>
+    <div class="container" style="width: auto;" >
+        <div class="buttons" style="width: auto;">
+            <input type="radio" id="red" name="red" value="Red" onclick="setColor(this)">
+            <label for="red">Red</label><br>
+            <input type="radio" id="green" name="green" value="green" onclick="setColor(this)">
+            <label for="green">Green</label><br>
+            <input type="radio" id="blue" name="blue" value="blue" onclick="setColor(this)">
+            <label for="blue">Blue</label>
+        </div>
+        <br>
+        <div class="canvas">
+            <canvas id="output" width="200px" height="100px"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const selected = document.getElementById("red");
+        function setColor(element) {
+            const canvas = document.getElementById("output");
+            const context = canvas.getContext('2d');
+            context.fillStyle = element.name;
+            context.rect(0,0,200,100);
+            context.fill();
+        }
+    </script>
+</body>
+</html>

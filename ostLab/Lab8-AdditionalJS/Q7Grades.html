@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8Q7</title>
+</head>
+<body>
+    <div class="container">
+        Enter marks 1 : <input type="text" id="marksInp1" /><br>
+        Enter marks 2 : <input type="text" id="marksInp2" /><br>
+        Enter marks 3 : <input type="text" id="marksInp3" /><br>
+        Enter marks 4 : <input type="text" id="marksInp4" /><br>
+        <br><input type="submit" value="Submit" onclick="calc()"/>
+        <br><div id="output"></div>
+    </div>
+
+    <script>
+        function calc() {
+
+            var inp1 = parseInt(document.getElementById("marksInp1").value);
+            var inp2 = parseInt(document.getElementById("marksInp2").value);
+            var inp3 = parseInt(document.getElementById("marksInp3").value);
+            var inp4 = parseInt(document.getElementById("marksInp4").value);
+
+            var out = document.getElementById("output");
+
+            var avg = (inp1 + inp2 + inp3 + inp4) / 4;
+
+            var template = "Grade received : "
+
+            if (avg > 90)
+                out.innerText = template + "A"
+            else if (avg > 80 && avg <= 90)
+                out.innerText = template + "B";
+            else if (avg > 70 && avg <= 80)
+                out.innerText = template + "C";
+            else if (avg > 60 && avg <= 70)
+                out.innerText = template + "D";
+            else 
+                out.innerText = template + "E";
+        }
+    </script>
+
+</body>
+</html>

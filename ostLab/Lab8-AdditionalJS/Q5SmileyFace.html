@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8Q5</title>
+</head>
+<body>
+    <div class="container">
+        <canvas id="smiley" width="400px" height="400px"></canvas>
+    </div>
+
+    <script>
+        function circle() {
+            const canvas = document.getElementById("smiley");
+            const circle = canvas.getContext('2d');
+            circle.fillStyle = "yellow";
+            circle.arc(150, 150, 100, 0, Math.PI * 2, true);
+            circle.fill();
+        }
+       
+        function eyes() {
+            const canvas = document.getElementById("smiley");
+            const eye = canvas.getContext('2d');
+            eye.beginPath();
+            eye.fillStyle = "black";
+            eye.arc(100, 110, 4, 0, Math.PI * 2, true);    
+            eye.closePath();    
+            eye.fill();
+            eye.beginPath();    
+            eye.arc(200, 110, 4, 0, Math.PI * 2, true);    
+            eye.closePath();    
+            eye.fill();   
+        }
+
+        function smile() {
+            const canvas = document.getElementById("smiley");    
+            const smile = canvas.getContext("2d");    
+            smile.beginPath();    
+            smile.strokeStyle = "black";    
+            smile.arc(150, 170, 40, 0, Math.PI , false);    
+            smile.stroke();  
+        }
+        
+        circle();
+        eyes();
+        smile();
+
+    </script>
+</body>
+</html>

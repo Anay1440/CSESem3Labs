@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8Q1</title>
+</head>
+<body>
+
+    <div class="container">
+        <canvas height="190px" width="140px"  id="rectangleCanvas" style="border-color: orange; border-style: solid; border-width: 5px;"></canvas>
+    </div>
+
+    <script>
+
+        const canvas = document.getElementById("rectangleCanvas");
+        const context = canvas.getContext('2d');
+
+        context.translate(-22,0)
+        context.fillStyle = 'red'
+        context.fillRect(20,20,100,140)
+
+        context.rotate(0.4);
+        context.translate(43,-30)
+        context.fillStyle = 'blue'
+        context.fillRect(20,20,100,140)
+
+    </script>
+
+</body>
+</html>

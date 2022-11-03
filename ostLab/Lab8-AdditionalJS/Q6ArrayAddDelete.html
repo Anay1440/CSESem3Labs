@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8Q6</title>
+</head>
+<body>
+    Enter element to add: <input type="text" id = "InpEle">
+    <input type="submit" value="Add" onclick="add()"><br>
+    Enter element to delete: <input type="text" id = "DelEle">
+    <input type="submit" value="Delete" onclick="remove()"><br>
+    <div id="out"></div>
+
+    <script>
+        var array = [];
+        var size = 0;
+        function add() {
+            var ele = document.getElementById("InpEle").value;
+            array.push(parseInt(ele));
+            display()
+        }
+        function remove() {
+            var ele = document.getElementById("DelEle").value;
+            var index=0;
+            for(var i=0;i<array.length;i++) {
+                if(parseInt(ele) == array[i]){
+                        index = i;
+                }
+            }
+            array.splice(index,1);
+            display();
+        }
+
+        function display() {
+            k = "";
+            for(var i =0; i<array.length;i++){
+                k = k + array[i].toString() + " ";
+            }
+            document.getElementById("out").innerText = k;
+        }
+    </script>
+</body>
+</html>

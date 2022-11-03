@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8Q9</title>
+</head>
+<body>
+    <div class="container">
+        Name : <input type="text" id="name" /><br>
+        Password : <input type="password" id="pwd" /><br>
+        Phone : <input type="text" id="phone" /><br>
+        <br><input type="submit" value="Register" onclick="validate()"/>
+        <br><div id="output"></div>
+    </div>
+
+    <script> 
+        function validate() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var out = document.getElementById("output");
+
+            if (name != name.toUpperCase()) 
+                out.innerText = "Please enter only capital letters in Name"
+            else if (phone.length != 10)
+                out.innerText = "Please enter only 10 digits in phone";
+            else {
+                out.innerText = "Success";
+            }
+        }
+    </script>
+</body>
+</html>
