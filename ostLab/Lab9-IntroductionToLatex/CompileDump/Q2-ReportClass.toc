@@ -1,3 +1,0 @@
-\contentsline {chapter}{\numberline {1}Section 1}{2}
-\contentsline {subsection}{\numberline {1.0.1}SubSection 1}{2}
-\contentsline {chapter}{\numberline {2}Section 2}{3}

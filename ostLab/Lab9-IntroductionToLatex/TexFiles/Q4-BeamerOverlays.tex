@@ -1,0 +1,63 @@
+\documentclass{beamer}
+\usepackage{blindtext}
+\usetheme{Warsaw}
+\usecolortheme{crane}
+\begin{document}
+    \begin{frame}
+        \title{Introduction to \LaTeX{}}
+        \institute{\inst{1} MIT Manipal \and \inst2{2} Microsoft}
+        \author{Anay~Patil\inst{1} \and 
+        Author~2\inst{1} \and
+        Author~3\inst{2}}
+        \date{\today}
+        \subtitle{Subtitle}
+        \maketitle
+    \end{frame}
+    \section{Introduction}
+    \section{Development}
+    \section{Blocks}
+    \begin{frame}
+        \tableofcontents
+    \end{frame}
+    \begin{frame}
+        \frametitle{What is LaTeX ?}
+        \blindtext
+    \end{frame}
+    \begin{frame}
+        \frametitle{Who developed LaTeX ?}
+        \blindtext
+    \end{frame}
+    \begin{frame}{Blocks}
+        \begin{exampleblock}{}
+            This is a block without title
+        \end{exampleblock}
+        \begin{alertblock}{Title of alert block}
+            This is an alert block with title
+        \end{alertblock}
+    \end{frame}
+    \begin{frame}{Overlays}
+        \begin{itemize}
+            \item Item 1
+            \pause
+            \item Item 2
+            \pause
+        \end{itemize}
+        \begin{enumerate}
+            \item Item 1
+            \pause
+            \item Item 2
+        \end{enumerate}
+    \end{frame}
+    \begin{frame}{Overlay Commands}
+        \setbeamercovered{highly dynamic}
+        \onslide<1>{This is the first sentence in the frame}
+        
+        \only<2>{This is the second sentence in the frame}
+        
+        \onslide<3>{This is the third sentence in the frame}
+        
+        \invisible<1->{This wont be visible, and will cause a gap between 3rd sentence and end}
+        
+        \visible<4>{End of overlays}
+    \end{frame}
+\end{document}
