@@ -1,0 +1,162 @@
+$date
+	Mon Nov  7 16:58:28 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module sixBitShiftReg_tb $end
+$var wire 1 ! o $end
+$var reg 1 " clk $end
+$var reg 1 # inp $end
+$scope module fbr $end
+$var wire 1 " clk $end
+$var wire 1 # inp $end
+$var wire 5 $ t [4:0] $end
+$var wire 1 ! o $end
+$scope module ff1 $end
+$var wire 1 " clk $end
+$var wire 1 # d $end
+$var reg 1 % q $end
+$upscope $end
+$scope module ff2 $end
+$var wire 1 " clk $end
+$var wire 1 & d $end
+$var reg 1 ' q $end
+$upscope $end
+$scope module ff3 $end
+$var wire 1 " clk $end
+$var wire 1 ( d $end
+$var reg 1 ) q $end
+$upscope $end
+$scope module ff4 $end
+$var wire 1 " clk $end
+$var wire 1 * d $end
+$var reg 1 + q $end
+$upscope $end
+$scope module ff5 $end
+$var wire 1 " clk $end
+$var wire 1 , d $end
+$var reg 1 - q $end
+$upscope $end
+$scope module ff6 $end
+$var wire 1 " clk $end
+$var wire 1 . d $end
+$var reg 1 ! q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+1&
+1%
+b1xxxx $
+1#
+1"
+x!
+$end
+#10
+0"
+#20
+1(
+b11xxx $
+1'
+1"
+#30
+0"
+0#
+#40
+0&
+1*
+0%
+b11xx $
+1)
+1"
+#50
+0"
+1#
+#60
+1,
+0(
+1&
+1+
+0'
+b1011x $
+1%
+1"
+#70
+0"
+#80
+1(
+0*
+1.
+1'
+0)
+b11011 $
+1-
+1"
+#90
+0"
+0#
+#100
+0,
+1*
+0&
+1!
+0+
+1)
+b1101 $
+0%
+1"
+#110
+0"
+#120
+0(
+1,
+0.
+0'
+1+
+b110 $
+0-
+1"
+#130
+0"
+#140
+1.
+0*
+0!
+1-
+b11 $
+0)
+1"
+#150
+0"
+#160
+0,
+b1 $
+0+
+1!
+1"
+#170
+0"
+#180
+0.
+b0 $
+0-
+1"
+#190
+0"
+#200
+0!
+1"
