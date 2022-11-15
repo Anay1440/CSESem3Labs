@@ -1,0 +1,98 @@
+$date
+	Mon Nov  7 16:42:45 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module fiveBitReg_tb $end
+$var wire 5 ! o [4:0] $end
+$var reg 1 " clk $end
+$var reg 5 # inp [4:0] $end
+$var reg 1 $ reset $end
+$scope module fbr $end
+$var wire 1 " clk $end
+$var wire 5 % inp [4:0] $end
+$var wire 1 $ reset $end
+$var wire 5 & o [4:0] $end
+$scope module ff1 $end
+$var wire 1 " clk $end
+$var wire 1 ' d $end
+$var wire 1 $ reset $end
+$var reg 1 ( q $end
+$upscope $end
+$scope module ff2 $end
+$var wire 1 " clk $end
+$var wire 1 ) d $end
+$var wire 1 $ reset $end
+$var reg 1 * q $end
+$upscope $end
+$scope module ff3 $end
+$var wire 1 " clk $end
+$var wire 1 + d $end
+$var wire 1 $ reset $end
+$var reg 1 , q $end
+$upscope $end
+$scope module ff4 $end
+$var wire 1 " clk $end
+$var wire 1 - d $end
+$var wire 1 $ reset $end
+$var reg 1 . q $end
+$upscope $end
+$scope module ff5 $end
+$var wire 1 " clk $end
+$var wire 1 / d $end
+$var wire 1 $ reset $end
+$var reg 1 0 q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+b0 &
+b0 %
+1$
+b0 #
+1"
+b0 !
+$end
+#10
+1)
+1-
+1/
+0$
+b1011 #
+b1011 %
+0"
+#20
+10
+1.
+b1011 !
+b1011 &
+1*
+1"
+#30
+0"
+#40
+00
+0.
+b0 !
+b0 &
+0*
+1"
+1$
+#50
+0"
