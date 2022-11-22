@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <title>Q2Name</title>
+</head>
+<body>
+
+    <div ng-app="myApp" ng-controller="myController">
+        <input type="text" placeholder="Enter First Name" ng-model="user.fName">&nbsp;&nbsp;
+        <input type="text" placeholder="Enter Last Name" ng-model="user.lName">&nbsp;&nbsp;
+        <br><br>
+        {{ user.fName}}&nbsp;{{ user.lName }}
+    </div>
+
+    <script>
+        var myApp = angular.module("myApp",[]);
+        myApp.controller('myController', function($scope) { 
+        });
+    </script>
+
+</body>
+</html>

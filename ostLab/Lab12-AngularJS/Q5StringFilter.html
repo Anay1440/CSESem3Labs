@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <title>Q5StringFilter</title>
+</head>
+<body>
+
+    <div ng-app="myApp" ng-controller="myController">
+        Lowercase: {{word | lowercase}} <br>
+        Uppercase: {{word | uppercase}}
+    </div>
+
+    <script>
+        var myApp = angular.module("myApp",[]);
+        myApp.controller('myController', function($scope) { 
+            $scope.word = "QwErTy";
+        });
+    </script>
+    
+</body>
+</html>

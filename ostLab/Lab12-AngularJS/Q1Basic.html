@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <title>Q1BasicH3</title>
+</head>
+<body>
+
+    <div ng-app="myApp" ng-controller="myController">
+        <h3>{{ data }}</h3>
+    </div>
+
+    <script>
+        var myApp = angular.module("myApp",[]);
+        var myController = function($scope,$routeParams) {
+            $scope.data="CSE branch, MIT Manipal";
+        }
+        myApp.controller("myController",['$scope',myController]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="node_modules/angular/angular.min.js"></script>
+    <title>Q7JSONFilter</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        {{ jsonExpr | json}}
+    </div>
+
+    <script>
+        var myApp = angular.module("myApp",[]);
+        myApp.controller('myController', function($scope) { 
+            $scope.jsonExpr = {FirstName:"Anay", LastName:"Patil", Uni:"MIT, Manipal"};
+        });
+    </script>
+</body>
+</html>
