@@ -1,0 +1,152 @@
+$date
+	Mon Nov 21 15:13:20 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module johnsonCounter_tb $end
+$var wire 5 ! Q [4:0] $end
+$var reg 1 " clk $end
+$var reg 1 # reset $end
+$scope module johnsonCounterq $end
+$var wire 1 " clk $end
+$var wire 1 # reset $end
+$var wire 5 $ Q [4:0] $end
+$scope module ff1 $end
+$var wire 1 " clk $end
+$var wire 1 % d $end
+$var wire 1 # reset $end
+$var reg 1 & q $end
+$upscope $end
+$scope module ff2 $end
+$var wire 1 " clk $end
+$var wire 1 ' d $end
+$var wire 1 # reset $end
+$var reg 1 ( q $end
+$upscope $end
+$scope module ff3 $end
+$var wire 1 " clk $end
+$var wire 1 ) d $end
+$var wire 1 # reset $end
+$var reg 1 * q $end
+$upscope $end
+$scope module ff4 $end
+$var wire 1 " clk $end
+$var wire 1 + d $end
+$var wire 1 # reset $end
+$var reg 1 , q $end
+$upscope $end
+$scope module ff5 $end
+$var wire 1 " clk $end
+$var wire 1 - d $end
+$var wire 1 # reset $end
+$var reg 1 . q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+0&
+1%
+b0 $
+1#
+0"
+b0 !
+$end
+#10
+1"
+#20
+0"
+0#
+#30
+1'
+b10000 !
+b10000 $
+1&
+1"
+#40
+0"
+#50
+1)
+b11000 !
+b11000 $
+1(
+1"
+#60
+0"
+#70
+1+
+b11100 !
+b11100 $
+1*
+1"
+#80
+0"
+#90
+1-
+b11110 !
+b11110 $
+1,
+1"
+#100
+0"
+#110
+0%
+b11111 !
+b11111 $
+1.
+1"
+#120
+0"
+#130
+0'
+b1111 !
+b1111 $
+0&
+1"
+#140
+0"
+#150
+0)
+b111 !
+b111 $
+0(
+1"
+#160
+0"
+#170
+0+
+b11 !
+b11 $
+0*
+1"
+#180
+0"
+#190
+0-
+b1 !
+b1 $
+0,
+1"
+#200
+0"
+#210
+1%
+b0 !
+b0 $
+0.
+1"
+#220
+0"
