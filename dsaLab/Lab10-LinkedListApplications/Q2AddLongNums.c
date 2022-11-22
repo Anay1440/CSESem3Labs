@@ -24,31 +24,46 @@ void displayCirc(Node **node) {
     printf("\n");
 }
 
+void insertFrontCDLL(Node ** list, int x) {
+    Node * temp = (Node *) malloc(sizeof(Node));
+    temp->val = x;
+    temp->left = *list;
+    if ((*list)->right != NULL) {
+        temp->right = (*list)->right;
+        ((*list)->right)->left = temp;
+    }
+    else {
+        temp->right = *list;
+    }
+    (*list)->right = temp;
+}
+
 void add(Node ** list1, Node ** list2, Node ** list3) {
-    printf("here");
     Node * list1Rev = (Node *) malloc (sizeof(Node));
     Node * list2Rev = (Node *) malloc (sizeof(Node));
     Node * temp = (Node *) malloc (sizeof(Node));
     temp = (*list1)->right;
-    printf("here");
     while (temp->right != *list1)
         temp = temp->right;
     list1Rev = temp;
-    printf("here");
     temp = (*list2)->right;
     while (temp->right != *list2)
         temp = temp->right;
     list2Rev = temp;
+    Node * head3 = (Node *) malloc(sizeof(Node));
+    *list3 = head3;
+    head3->right = NULL;
 
     int carry = 0;
-
     while ((list1Rev != *list1) || (list2Rev != *list2)) {
+        // int val1 = list1Rev->val;
+        // if (list1Rev == NULL)
+        //     val1 = 0;
+        // int val2 = list2Rev->val;
+        // if (list2Rev == NULL)
+        //     val2 = 0;
         int val1 = list1Rev->val;
-        if (list1Rev == NULL)
-            val1 = 0;
         int val2 = list2Rev->val;
-        if (list2Rev == NULL)
-            val2 = 0;
 
         int x = val1 + val2 + carry;
         if (x > 10) {
@@ -57,10 +72,14 @@ void add(Node ** list1, Node ** list2, Node ** list3) {
         }
         else
             carry = 0;
-        insertFront(list3,x);
+        insertFrontCDLL(list3,x);
+        printf("here");
         list1Rev = list1Rev -> left;
         list2Rev = list2Rev -> left;
     }
+
+    if (carry == 1) 
+        insertFrontCDLL(list3,1);
 }
 
 int main() {
@@ -83,17 +102,18 @@ int main() {
     head1->right = list1;
     list1 = head1;
     makeCirc(&list1);
+    (list1->right)->left = list1;
     displayCirc(&list1);
     printf("Enter second number\n");
     input(list2,n2);
     head2->right = list2;
     list2 = head2;
     makeCirc(&list2);
+    (list2->right)->left = list2;
     displayCirc(&list2);
 
-    printf("Adding both nums");
-    printf("hmm");
     add(&list1,&list2,&list3);
-    display(list3);
+    printf("Result of addition: ");
+    displayCirc(&list3);
 
 }

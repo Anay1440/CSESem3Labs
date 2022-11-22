@@ -68,21 +68,63 @@ void sub(Node **list1, Node **list2, Node **list3) {
     iter2 = (*list2)->next;
     Node * head3 = (Node *) malloc(sizeof(Node));
     *list3 = head3;
-    head3->next = NULL;
+    head3->next = head3;
 
-    while (iter1 != NULL) {
-
+    while (iter1 != *list1 ) {    
         int x = getCoeff(*list2,iter1->coeff);
         if (x == 0) {
             Node * new = (Node *) malloc(sizeof(Node));
+            new->next = head3->next;
             head3->next = new;
             new->val = iter1->val;
-            
+            new->coeff = iter1->coeff;
         }
+        else {
+            Node * new = (Node *) malloc(sizeof(Node));
+            new->next = head3->next;
+            head3->next = new;
+            new->val = iter1->val - x;
+            new->coeff = iter1->coeff;
+        }
+        iter1 = iter1->next;
+        head3 = head3->next;
+    }
+    while (iter2 != *list2) {
+        int x = getCoeff(*list3,iter2->coeff);
+        if (x == 0) {
+            Node * new = (Node *) malloc(sizeof(Node));
+            new->next = head3->next;
+            head3->next = new;
+            new->val = - iter2->val;
+            new->coeff = iter2->coeff;
+        }
+        iter2 = iter2->next;
+        head3 = head3->next;
+    }
+}
 
+void mult(Node **list1, Node **list2, Node **list4) {
+    Node * iter1 = (Node *) malloc(sizeof(Node));
+    iter1 = (*list1)->next;
+    Node * iter2 = (Node *) malloc(sizeof(Node));
+    iter2 = (*list2)->next;
+    Node * head4 = (Node *) malloc(sizeof(Node));
+    *list4 = head4;
+    head4->next = head4;
+
+    while (iter1 != *list1) {
+        iter2 = (*list2) -> next;
+        while (iter2 != *list2) {
+            Node * new = (Node *) malloc(sizeof(Node));
+            new->next = head4->next;
+            head4->next = new;
+            new->val = iter1->val *  iter2->val;
+            new->coeff = iter1->coeff + iter2->coeff;
+
+            iter2 = iter2->next;
+        }
         iter1 = iter1->next;
     }
-
 }
 
 int main() {
@@ -90,9 +132,21 @@ int main() {
     Node * list1 = (Node *) malloc(sizeof(Node));
     Node * list2 = (Node *) malloc(sizeof(Node));
     Node * list3 = (Node *) malloc(sizeof(Node));
+    Node * list4 = (Node *) malloc(sizeof(Node));
+
 
     printf("Enter length of first polynomial expression ");
     scanf("%d",&n1);
     inputCirc(&list1,n1);
     displayCirc(&list1);
+    printf("Enter length of first polynomial expression ");
+    scanf("%d",&n2);
+    inputCirc(&list2,n2);
+    displayCirc(&list2);
+    printf("Expression after subtraction: ");
+    sub(&list1,&list2,&list3);
+    displayCirc(&list3);
+    printf("Expression after multiplication: ");
+    mult(&list1,&list2,&list4);
+    displayCirc(&list4);
 }
