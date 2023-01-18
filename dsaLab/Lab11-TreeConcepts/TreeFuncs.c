@@ -9,6 +9,19 @@ typedef struct node {
 
 typedef struct node Node;
 
+typedef struct {
+    Node * nodes[100];
+    int tos;
+} Stack;
+
+void push(Stack * s, Node * x) {
+    s->nodes[++(s->tos)] = x;
+}
+
+Node * pop(Stack * s) {
+    return (s->nodes[(s->tos)--]);
+}
+
 Node * createNode(int x) {
     Node * new = (Node *) malloc(sizeof(Node));
     new->val = x;
@@ -43,17 +56,18 @@ void preOrder(Node *tree) {
 
 void createBT(Node ** tree) {
     Node * iter = (Node *) malloc(sizeof(Node));
-    Node * prev = (Node *) malloc(sizeof(Node));
     Node * root = (Node *) malloc(sizeof(Node));
+    Stack nodeStack;
+    nodeStack.tos = -1;
     iter = NULL;
     int x;
     int inp = 0;
     printf("Enter value of root ");
     scanf("%d",&x);
     iter = createNode(x);
+    push(&nodeStack,iter);
     root = iter;
     *tree = iter;
-    prev = iter;
 
     printf("\n1. Enter left, 2. Enter right, 3. Move up, -1. Exit");
 
@@ -64,7 +78,7 @@ void createBT(Node ** tree) {
             printf("Enter value to insert ");
             scanf("%d",&x);
             Node * temp = createNode(x);
-            prev = iter;
+            push(&nodeStack,iter);
             iter->left = temp;
             iter = iter->left;
             printf("Moved left");
@@ -73,17 +87,17 @@ void createBT(Node ** tree) {
             printf("Enter value to insert ");
             scanf("%d",&x);
             Node * temp = createNode(x);
-            prev = iter;
+            push(&nodeStack,iter);
             iter->right = temp;
             iter = iter->right;
             printf("Moved right");
         }
         else if (inp == 3) {
-            if (iter == root) {
+            if (nodeStack.tos == 0) {
                 printf("Already at root");
             }
             else {
-                iter = prev;
+                iter = pop(&nodeStack);
                 printf("Moved up");
             }
         }

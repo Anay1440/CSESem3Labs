@@ -13,13 +13,13 @@ Node * copy(Node * node) {
 }
 
 int eqCheck(Node * node1, Node * node2) {
-    if (node1->val != node2->val)
+    if (node1 == NULL && node2 == NULL) 
+        return 1;
+    if (node1 == NULL || node2 == NULL) 
         return 0;
-    
-    eqCheck(node1->left,node2->left);
-    eqCheck(node1->right,node2->right);
-        
-    return 1;
+    if (node1->val != node2->val) 
+        return 0;
+    return eqCheck(node1->left, node2->left) && eqCheck(node1->right, node2->right);
 }
 
 
@@ -32,9 +32,9 @@ int main() {
     treeCopy = copy(tree);
     printf("\nInorder of copy: ");
     inOrder(treeCopy);
-    // int check = eqCheck(tree,treeCopy);
-    // if (check)
-    //     printf("Binary trees are equal");
-    // else
-    //     printf("Binary trees are not equal");
+    int check = eqCheck(tree,treeCopy);
+    if (check)
+        printf("\nBinary trees are equal");
+    else
+        printf("\nBinary trees are not equal");
 }

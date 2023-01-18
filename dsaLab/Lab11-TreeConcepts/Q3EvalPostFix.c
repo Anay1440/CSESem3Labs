@@ -1,25 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct node {
-    char val;
-    struct node * left;
-    struct node * right;
-} Node ;
-
-Node * createNode(char x) {
-    Node * new = (Node *) malloc(sizeof(Node));
-    new->val = x;
-    new->left = NULL;
-    new->right = NULL;
-    return new;
-}
+#include <string.h>
+#include "TreeFuncs.h"
 
 double eval(char op,double x,double y) {
     if (op == '+')  return x+y;
     if (op == '-')  return x-y;
     if (op == '*')  return x*y;
     if (op == '/')  return x/y;
+}
+
+int isOperator(char x) {
+    return (x == '+' || x == '-' || x == '*' || x == '/');
 }
 
 double evaluate(Node * node) {
@@ -35,13 +27,23 @@ double evaluate(Node * node) {
 }
 
 int main() {
-    Node * root = createNode('+');
-    root->left = createNode('*');
-    root->right = createNode('/');
-    root->left->left = createNode('1');
-    root->left->right = createNode('5');
-    root->right->left = createNode('8');
-    root->right->right = createNode('4');
+    Stack nodeStack;
+    nodeStack.tos = -1;
+    char postfix[100];
+    printf("Enter postfix expression : ");
+    scanf("%s",postfix);
+    int i;
+    for (i=0;i<strlen(postfix);i++) {
+        if (!isOperator(postfix[i]))
+            push(&nodeStack,createNode(postfix[i]));
+        else {
+            Node * root = createNode(postfix[i]);
+            root->right = pop(&nodeStack);
+            root->left = pop(&nodeStack);
+            push(&nodeStack,root);
+        }
+    }
 
+    Node * root = pop(&nodeStack);
     printf("Ans :  %lf",evaluate(root));
 }

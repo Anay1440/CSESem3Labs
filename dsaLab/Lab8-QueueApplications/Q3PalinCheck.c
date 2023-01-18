@@ -2,42 +2,52 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define SIZE 100
+
 typedef struct {
-    char *q;
+    char q[SIZE];
     int front,rear;
 } Queue;
 
-char dequeue(Queue * q) {
-    char x = q->q[0];
-    int i,ind=0;
+void enqueue(Queue * q, char ch) {
+    if (q->rear < SIZE) {
+        q->q[++(q->rear)] = ch;
+    }
+    else {
+        printf("Queue is full");
+    }
+}
 
-    for(i=1;i<=q->rear;i++) 
-        q->q[ind++] = q->q[i];
-    q->rear--;
-    return x;
+char dequeue(Queue * q) {
+    return q->q[++(q->front)];
 }
 
 int main() {
     Queue q;
+    q.front = -1;
+    q.rear = -1;
     char str[100];
     printf("Enter word ");
     scanf("%s",str);
-    q.rear = strlen(str) - 1;
-    q.q = (char *) malloc(strlen(str) * sizeof(char));
-    strcpy(q.q,str);
+    int i;
+    for(i=0;i<strlen(str);i++) {
+        enqueue(&q,str[i]);
+    }
     char * rev = (char *) malloc(strlen(str) * sizeof(char));
     rev[0] = '\0';
-    int i;
-    char sTemp[2];
-    char * temp= (char *) malloc(20 * sizeof(char));
+    int ind=0,j;
+    char ch;
+    char * temp= (char *) malloc(strlen(str) * sizeof(char));
     for(i=0;i<strlen(str);i++) {
-        sTemp[0] = dequeue(&q);
-        sTemp[1] = '\0';
-        strcpy(temp,sTemp);
-        strcat(temp,rev);
-        strcpy(rev,temp);
+        ch = dequeue(&q);
+        for(j=ind;j>=1;j--) {
+            temp[j] = temp[j-1];
+        }
+        temp[0] = ch;
+        ind++;
     }
-    if (strcmp(str,rev) == 0)
+    temp[ind] = '\0';
+    if (strcmp(str,temp) == 0)
         printf("Word is palindrome");
     else
         printf("Word is not palindrome");

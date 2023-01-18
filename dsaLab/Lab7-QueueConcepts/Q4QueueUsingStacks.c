@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define SIZE 10
+
 typedef struct {
-    int st[10];
+    int st[SIZE];
     int tos;
 } Stack;
 
@@ -22,12 +24,15 @@ int main() {
     int inp,t;
     printf("\n1. Enqueue, 2. Dequeue, -1. Exit\n");
     do {
-        printf("Enter choice ");
+        printf("\nEnter choice ");
         scanf("%d",&inp);
         if (inp == 1) {
             printf("Enter number to enqueue ");
             scanf("%d",&t);
-            push(&s1,t);
+            if (s1.tos < SIZE)
+                push(&s1,t);
+            else
+                printf("\nQueue is full");
         }
         else if (inp == 2) {
             if (s2.tos == -1) {
@@ -35,7 +40,10 @@ int main() {
                     push(&s2,pop(&s1));
                 }
             }
-            printf("Number dequeued: %d",pop(&s2));
+            if (s2.tos != -1)
+                printf("Number dequeued: %d",pop(&s2));
+            else
+                printf("Queue is empty");
         }
         else 
             inp = -1;

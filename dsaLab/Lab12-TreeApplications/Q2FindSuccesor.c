@@ -3,23 +3,36 @@
 #include "BSTFuncs.h"
 
 int findSuccessor(Node **tree,int x) {
+    Stack nodeStack;
+    nodeStack.tos = -1;
     Node * iter = (Node *) malloc(sizeof(Node));
-    Node * prev = (Node *) malloc(sizeof(Node));
-    Node * root = (Node *) malloc(sizeof(Node));
-    Node * temp = (Node *) malloc(sizeof(Node));
-    root = *tree;
-    iter = root;
-    prev = NULL;
-    while (iter->val != x) {
-        if (iter->val < x)
-            iter = iter->right;
-        else 
+    Node * succ = (Node *) malloc(sizeof(Node));
+    iter = *tree;
+    push(&nodeStack,iter);
+
+    while (iter != NULL) {
+        if (iter->val > x) {
+            succ = iter;
             iter = iter->left;
+        }
+        else if (iter->val < x) {
+            iter = iter->right;
+        }
+        else {
+            if (iter->right != NULL) {
+                succ = iter->right;
+                while (succ->left != NULL) {
+                    succ = succ->left;
+                }
+            }
+            break;
+        }
     }
-    if (iter->right != NULL)
-        return iter->right->val;
-    else
-        return root->right->val;
+    if (succ == NULL) {
+        return -1;
+    } else {
+        return succ->val;
+    }
 }
 
 int main() {

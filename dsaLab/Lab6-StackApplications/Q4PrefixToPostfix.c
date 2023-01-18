@@ -8,22 +8,15 @@ typedef struct {
 } Stack;
 
 void push(Stack *s,char *ch) {
-    int i=0;
-    while (ch[i] != '\0') {
-        (s->st)[++(s->tos)][i] = ch[i]; 
-    }
+    strcpy(s->st[++(s->tos)],ch);
 }
 
-char* pop(Stack *s) {
+char * pop(Stack *s) {
     int i=0;
-    char * ch = s->st[(s->tos)--];
-    char * ans;
+    char * ch = (char *) malloc (20*sizeof(char));
+    strcpy(ch,s->st[(s->tos)--]);
     int len = (int) strlen(ch);
-    ans = (char *) malloc (len*sizeof(char));
-    while(ch[i] != '\0') {
-        ans[i] = ch[i]; 
-    }
-    return ans;
+    return ch;
 }
 
 int isOp(char ch) {
@@ -64,30 +57,22 @@ int main() {
             strcpy(op2,pop(&s));
             int i2,i3=0,ind2=0;
             int len = strlen(op1) + strlen(op2) + 1;
-            temp = (char *) malloc (len*sizeof(char));
-            for (i2=0;i2<len;i2++) {
-                if (i2<(int)strlen(op1))
-                    temp[ind2++] = op1[i2];
-                else if (i2 == len -1)
-                    temp[ind2++] = expr[i]; 
-                else 
-                    temp[ind2++] = op2[i3++];
-            }
-            temp[ind2] = '\0';
+            temp = (char *) calloc (len,sizeof(char));
+            strcat(temp,op1);
+            strcat(temp,op2);
+            temp[len-1] = expr[i];
             push(&s,temp);
         }
         else {
-            
             temp = (char *) malloc (2*sizeof(char));
             temp[0] = expr[i];
             temp[1] = '\0';
             push(&s,temp);
         }
         i--;
-    } while( expr[i] != '\0' );
+    } while( i >= 0 );
 
     printf("Postfix expression is: ");
     printf("%s",s.st[0]);
 
-    //printf("Final answer: %s",pref);
 }

@@ -4,21 +4,8 @@
 
 typedef struct {
     Node ** nodesList;
-    int tos;
-} Stack;
-
-typedef struct {
-    Node ** nodesList;
     int front,rear;
 } Queue;
-
-Node * pop (Stack * s) {
-    return (s->nodesList[(s->tos)--]);
-}
-
-void push (Stack *s, Node * node) {
-    s->nodesList[++(s->tos)] = node;
-}
 
 void insertQ(Queue *q, Node * node) {
     if (q->front == -1)
@@ -41,7 +28,6 @@ Node * deleteQ(Queue *q) {
 void iterPreOrder(Node ** tree) {
     Node * temp = (Node *) malloc(sizeof(Node));
     Stack s;
-    s.nodesList = (Node **) malloc(20*sizeof(Node *));
     s.tos = -1;
     push(&s,*tree);
     while (s.tos != -1) {
@@ -56,7 +42,6 @@ void iterPreOrder(Node ** tree) {
 
 void iterPostOrder(Node **tree) {
     Stack s;
-    s.nodesList = (Node **) malloc(20*sizeof(Node *));
     s.tos = -1;
     Node * temp = (Node *) malloc(sizeof(Node));
     Node * temp2 = (Node *) malloc(sizeof(Node));
@@ -70,7 +55,7 @@ void iterPostOrder(Node **tree) {
         }
 
         temp = pop(&s);
-        if ((temp->right != NULL) && (s.nodesList[s.tos] == (temp->right))) {
+        if ((temp->right != NULL) && (s.nodes[s.tos] == (temp->right))) {
             temp2 = pop(&s);
             push(&s,temp);
             temp = temp2;
@@ -84,7 +69,6 @@ void iterPostOrder(Node **tree) {
 
 void iterInOrder(Node **tree) {
     Stack s;
-    s.nodesList = (Node **) malloc(20*sizeof(Node *));
     s.tos = -1;
     Node * temp = (Node *) malloc(sizeof(Node));
     temp = *tree;

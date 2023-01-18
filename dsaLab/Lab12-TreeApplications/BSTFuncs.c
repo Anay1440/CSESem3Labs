@@ -9,6 +9,23 @@ typedef struct node {
 
 typedef struct node Node;
 
+typedef struct {
+    Node * nodes[100];
+    int tos;
+} Stack;
+
+void push(Stack * s, Node * x) {
+    s->nodes[++(s->tos)] = x;
+}
+
+Node * pop(Stack * s) {
+    return (s->nodes[(s->tos)--]);
+}
+
+Node * peek(Stack * s) {
+    return (s->nodes[s->tos]);
+}
+
 Node * createNode(int x) {
     Node * new = (Node *) malloc(sizeof(Node));
     new->val = x;
