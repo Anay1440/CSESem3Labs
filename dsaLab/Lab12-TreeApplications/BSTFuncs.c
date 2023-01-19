@@ -78,19 +78,7 @@ void insertBST(Node **tree,int x) {
     if (prev == NULL) 
         *tree = temp;
     else if (x < prev->val) 
-        if (prev->left != NULL) {
-            temp->left = prev->left;
-            prev->left = temp;
-        }
-        else 
-            prev->left = temp;
-    else {
-        if (prev->right != NULL) {
-            temp->right = prev->right;
-            prev->right = temp;
-        }
-        else 
-            prev->right = temp;
-
-    }
+        prev->left = temp;
+    else 
+        prev->right = temp;
 }
