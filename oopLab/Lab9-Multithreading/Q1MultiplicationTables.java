@@ -31,8 +31,6 @@ class Tables {
 
 class Q1MultiplicationTables {
     public static void main(String args[]) {
-        // NewThread f = new NewThread("Five", 5);
-        // NewThread s = new NewThread("Seven", 7);
         Tables obj1 = new Tables(5);
         Tables obj2 = new Tables(7);
         try{

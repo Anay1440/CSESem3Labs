@@ -14,7 +14,6 @@ class SeatsFilledExc extends Exception {
 class Student {
     int regno;
     String fName;
-    // String DOJ;
     GregorianCalendar DOJ;
     short sem;
     float gpa,cgpa;
@@ -30,7 +29,6 @@ class Student {
             throw sfe;
         }
         GregorianCalendar gcal = new GregorianCalendar(y,m,d);
-        // String y = calcYear(DateOJ);
         String st = Integer.toString(gcal.get(1));
         String yst = st.substring(2,4);
         String n = Integer.toString(count);
@@ -46,7 +44,6 @@ class Student {
 
     void display() {
         System.out.println("\nName of student: "+fName+"\nRegistration Number: "+regno+"\nDate of joining: "+DOJ.get(5)+"/"+DOJ.get(2)+"/"+DOJ.get(1)+"\nSemester: "+sem+"\nGPA: "+gpa+"\nCGPA: "+cgpa);
-        // System.out.println("\nName of student: "+fName+"\nRegistration Number: "+regno+"\nDate of joining: "+DOJ+"\nSemester: "+sem+"\nGPA: "+gpa+"\nCGPA: "+cgpa);
     }
 }
 
@@ -61,8 +58,6 @@ class Q3Student {
             System.out.println("\nEnter details for student number "+(i+1));
             System.out.print("Enter your name ");
             String fName = sc.nextLine();
-            // System.out.print("Enter date of joining in the format dd/mm/yy ");
-            // String DateOJ = sc.nextLine();
             System.out.print("Enter day of DOJ ");
             int d = sc.nextInt();
             System.out.print("Enter month of DOJ ");

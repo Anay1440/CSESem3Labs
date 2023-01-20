@@ -4,12 +4,11 @@ class NewThread implements Runnable {
     String name;
     Thread t;
     int row[];
-    int sum,completed;
+    int sum;
 
     NewThread(String s,int r[]) {
         name=s;
         row=r;
-        completed=-1;
         t = new Thread(this,name);
         t.start();
     }
@@ -20,14 +19,10 @@ class NewThread implements Runnable {
             sum+=row[i];
         }
         System.out.println("Sum of "+name+" = "+sum);
-        completed=1;
     }
 
     int getSum() {
         return sum;
-    }
-    int getCompleted() {
-        return completed;
     }
 }
 
@@ -52,28 +47,15 @@ class Q2MatrixRows {
             String t = "Row "+i;
             rows[i] = new NewThread(t, mat[i]);
         }
-        // try{
-        //     System.out.println("Sleeping for 1 second");
-        //     Thread.sleep(1000);
-        // }
-        // catch(InterruptedException e) {
-        //     System.out.println("Interrupted..");
-        // }
         
-        //to check if the threads have all ended
-        while (true) {
-            int flag=-1;
+        try {
             for (int i=0;i<r;i++) {
-                flag=1;
-                if (rows[i].getCompleted() == -1)
-                    flag=-1;
+                rows[i].t.join();
+                sum+=rows[i].getSum();
             }
-            if (flag == 1)
-                break;
-        }    
-
-        for (int i=0;i<r;i++) {
-            sum+=rows[i].getSum();
+        }
+        catch(InterruptedException e) {
+            System.out.println("Interrupted..");
         }
         
         System.out.println("Total Sum: "+sum);

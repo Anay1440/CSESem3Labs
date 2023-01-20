@@ -1,71 +1,82 @@
-import java.util.Scanner;
+class SharedObject {
+    private int value = 0;
+    boolean available = false;
 
-class NewThread implements Runnable {
-    static int goods,end;
-    String name;
+    public synchronized void get() {
+        while(!available) {
+            try {
+                wait();
+            }
+            catch(InterruptedException e) {
+                System.out.println("Interrupted..");
+            }
+        }
+        System.out.println("Consumed: " + value);
+        available = false;
+        notify();
+    }
+
+    public synchronized void put() {
+        while(available) {
+            try {
+                wait();
+            }
+            catch(InterruptedException e) {
+                System.out.println("Interrupted..");
+            }
+        }
+        value++;
+        System.out.println("Produced: " + value);
+        available = true;
+        notify();
+    }
+}
+
+class Producer implements Runnable {
+    SharedObject sharedObject;
     Thread t;
-    int type,rate;
-
-    NewThread(String s,int ty,int r,int g) {
-        name = s;
-        type = ty;
-        rate = r;
-        goods = g;
-        end=-1;
-        t = new Thread(this,name);
+    Producer (SharedObject obj) {
+        sharedObject = obj;
+        t = new Thread(this, "Producer");
         t.start();
     }
-
     public void run() {
-        // Q3ProducerConsumer obj = new Q3ProducerConsumer();
-        if (type == 1) {
-            //producer
-            while (end == -1) {
-                try {
-                    Thread.sleep(rate);
-                    if (end != -1)
-                        break;
-                    goods+=1;
-                    System.out.println("Producer produced a good. Goods: "+goods);
-                }
-                catch(InterruptedException e) {
-                    System.out.println("Interrupted");
-                }
-            }
-        }
-        else {
-            //consumer
-            while (end == -1) {
-                try {
-                    Thread.sleep(rate);
-                    if (goods == 0) {
-                        System.out.println("Goods ran out");
-                        end = 1;
-                        break;
-                    }
-                    goods-=1;
-                    System.out.println("Consumer consumed a good. Goods: "+goods);
-                }
-                catch(InterruptedException e) {
-                    System.out.println("Interrupted");
-                }
-            }
+        for (int i=0;i<7;i++) {
+            sharedObject.put();
         }
     }
 }
 
-public class Q3ProducerConsumer {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number of initial goods available: ");
-        int g = sc.nextInt();
-        System.out.print("Enter speed of producer (in ms) ");
-        int pr = sc.nextInt();
-        System.out.print("Enter speed of consumer (in ms) ");
-        int cr = sc.nextInt();
-
-        NewThread producer = new NewThread("Producer",1,pr,g);
-        NewThread consumer = new NewThread("Consumer", 2, cr, g);
+class Consumer implements Runnable {
+    SharedObject sharedObject;
+    Thread t;
+    Consumer (SharedObject obj) {
+        sharedObject = obj;
+        t = new Thread(this, "Consumer");
+        t.start();
     }
-    
+    public void run() {
+        for (int i=0;i<20;i++) {
+            sharedObject.get();
+        }
+    }
 }
+
+class Q3ProducerConsumer {
+    public static void main(String[] args) {
+        SharedObject sharedObject = new SharedObject();
+
+        Producer producer = new Producer(sharedObject);
+        Consumer consumer = new Consumer(sharedObject);
+
+        try {
+            producer.t.join();
+            consumer.t.join();
+            System.out.println("Producer and Consumer threads terminated.");
+        }
+        catch(InterruptedException e) {
+            System.out.println("Interrupted..");
+        }
+    }
+}
+
