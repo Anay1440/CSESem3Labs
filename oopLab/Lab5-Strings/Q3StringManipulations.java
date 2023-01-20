@@ -4,7 +4,6 @@ import java.util.GregorianCalendar;
 class Student {
     int regno;
     String fName;
-    // String DOJ;
     GregorianCalendar DOJ;
     short sem;
     float gpa,cgpa;
@@ -56,7 +55,6 @@ class Student {
 
     Student(String name,int d,int m, int y,short semester,float gpavg,float cgpavg) {
         GregorianCalendar gcal = new GregorianCalendar(y,m,d);
-        // String y = calcYear(DateOJ);
         String st = Integer.toString(gcal.get(1));
         String yst = st.substring(2,4);
         String n = Integer.toString(count);
@@ -73,7 +71,6 @@ class Student {
 
     void display() {
         System.out.println("\nName of student: "+fName+"\nRegistration Number: "+regno+"\nDate of joining: "+DOJ.get(5)+"/"+DOJ.get(2)+"/"+DOJ.get(1)+"\nSemester: "+sem+"\nGPA: "+gpa+"\nCGPA: "+cgpa);
-        // System.out.println("\nName of student: "+fName+"\nRegistration Number: "+regno+"\nDate of joining: "+DOJ+"\nSemester: "+sem+"\nGPA: "+gpa+"\nCGPA: "+cgpa);
     }
 }
 
@@ -90,8 +87,6 @@ class Q3StringManipulations {
             System.out.println("\nEnter details for student number "+(i+1));
             System.out.print("Enter your name ");
             String fName = sc.nextLine();
-            // System.out.print("Enter date of joining in the format dd/mm/yy ");
-            // String DateOJ = sc.nextLine();
             System.out.print("Enter day of DOJ ");
             int d = sc.nextInt();
             System.out.print("Enter month of DOJ ");
@@ -105,10 +100,6 @@ class Q3StringManipulations {
             System.out.print("Enter your cgpa ");
             float cgpavg = sc.nextFloat();
             sc.nextLine();
-
-            // GregorianCalendar temp = new GregorianCalendar(y,m,d);
-
-            // stds[i] = new Student(fName,DateOJ,semester,gpavg,cgpavg);
             stds[i] = new Student(fName,d,m,y,semester,gpavg,cgpavg);
         }
 
@@ -116,9 +107,8 @@ class Q3StringManipulations {
         char ch = sc.next().charAt(0);
         System.out.println("The students with their name starting with same character are: ");
         for(int i=0;i<n;i++) {
-            if ( stds[i].fName.charAt(0) == ch) {
+            if ( stds[i].fName.charAt(0) == ch)
                 stds[i].display();
-            }
         }
     }
 }

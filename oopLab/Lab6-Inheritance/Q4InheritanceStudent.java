@@ -8,21 +8,23 @@ class Student {
         name = "Default";
         id = -1;
     }
-    class Sports {
-        int s_grade;
-    
-        Sports() {
-            s_grade = -1;
-        }
+}
+class Sports extends Student{
+    int s_grade;
+
+    Sports() {
+        super();
+        s_grade = -1;
     }
+}
 
 
-    class Exam {
-        int e_grade;
+class Exam extends Student {
+    int e_grade;
 
-        Exam() {
-            e_grade = -1;
-        }
+    Exam() {
+        super();
+        e_grade = -1;
     }
 }
 
@@ -31,12 +33,11 @@ class Student {
 class Result extends Student {
     String res="";
     Student s1 = new Student();
-    Student.Sports ss1 = s1.new Sports();
-    Student.Exam se1 = s1.new Exam();
+    Sports ss1 = new Sports();
+    Exam se1 = new Exam();
     Result() {
         res=name+"\n"+"ID: "+id+"\nSports grade: "+ss1.s_grade+"\nExam grade: "+se1.e_grade;
     }
-
     void display() {
         System.out.println(res);
     }

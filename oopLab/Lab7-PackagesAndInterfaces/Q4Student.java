@@ -7,6 +7,12 @@ interface Sports {
 
 class Student {
     int num,marks;
+
+    Student(int n, int m) {
+        putNumber(n);
+        putMarks(m);
+    }
+
     void putNumber(int a) {
         num = a;
     }
@@ -19,35 +25,39 @@ class Student {
     int getMarks() {
         return marks;
     }
+}
+class Result extends Student implements Sports {
+    int sportsGrade;
 
-    class Result implements Sports {
-        int sportsGrade;
-        public void putGrade(int a) {
-            sportsGrade = a;
-        }
-        public int getGrade() {
-            return sportsGrade;
-        }
-        public void display() {
-            System.out.println("Roll Number: "+getNumber()+"\nMarks: "+getMarks()+"\nSports Grade: "+getGrade());
-        }
+    Result(int n, int m, int s) {
+        super(n,m);
+        putGrade(s);
+    }
+
+    public void putGrade(int a) {
+        sportsGrade = a;
+    }
+    public int getGrade() {
+        return sportsGrade;
+    }
+    public void display() {
+        System.out.println("Roll Number: "+getNumber()+"\nMarks: "+getMarks()+"\nSports Grade: "+getGrade());
     }
 }
+
 
 public class Q4Student {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
 
-        Student s = new Student();
-        Student.Result ssp = s.new Result();
-
         System.out.print("Enter roll number ");
-        s.putNumber(sc.nextInt());
+        int n = sc.nextInt();
         System.out.print("Enter marks ");
-        s.putMarks(sc.nextInt());
+        int m = sc.nextInt();
         System.out.print("Enter sports grade ");
-        ssp.putGrade(sc.nextInt());
+        int s = sc.nextInt();
+        Result st = new Result(n, m, s);
         System.out.println("\nDisplaying results:");
-        ssp.display();
+        st.display();
     }
 }

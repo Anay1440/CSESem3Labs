@@ -13,61 +13,61 @@ class Building {
 
     void assign() {
         System.out.print("Enter the square footage ");
-        double sq = sc.nextDouble();
+        sqFootage = sc.nextDouble();
         System.out.print("Enter number of stories ");
-        int s = sc.nextInt();
-        sqFootage = sq;
-        stories = s;
+        stories = sc.nextInt();
     }
 
     void display() {
         System.out.println("Square Footage: "+sqFootage+"\nStories: "+stories);
     }
+}
 
-    class House {
-        int numOfBed,numOfBath;
+class House extends Building {
+    int numOfBed,numOfBath;
+    Scanner sc = new Scanner(System.in);
 
-        House() {
-            numOfBed = -1;
-            numOfBath = -1;
-        }
-
-        void assign() {
-            System.out.print("Enter number of bedrooms ");
-            int n1 = sc.nextInt();
-            System.out.print("Enter number of bathrooms ");
-            int n2 = sc.nextInt();
-            numOfBed = n1;
-            numOfBath = n2;
-        }
-
-        void display() {
-            System.out.println("Square Footage: "+sqFootage+"\nStories: "+stories+"\nNumber of bedrooms: "+numOfBed+"\nNumber of bathrooms: "+numOfBath);
-        }
+    House() {
+        super();
+        numOfBed = -1;
+        numOfBath = -1;
     }
 
-    class School {
-        int numOfClassRooms;
-        String gradeLev;
+    void assign() {
+        super.assign();
+        System.out.print("Enter number of bedrooms ");
+        numOfBed = sc.nextInt();
+        System.out.print("Enter number of bathrooms ");
+        numOfBath = sc.nextInt();
+    }
 
-        School() {
-            numOfClassRooms = -1;
-            gradeLev = "Default";
-        }
+    void display() {
+        super.display();
+        System.out.println("Number of bedrooms: "+numOfBed+"\nNumber of bathrooms: "+numOfBath);
+    }
+}
 
-        void assign() {
-            System.out.print("Enter number of class rooms ");
-            int n = sc.nextInt();
-            String dump = sc.nextLine();
-            System.out.print("Enter grade level ");
-            String glev = sc.next();
-            numOfClassRooms = n;
-            gradeLev = glev;
-        }
+class School extends Building {
+    int numOfClassRooms;
+    String gradeLev;
 
-        void display() {
-            System.out.println("Square Footage: "+sqFootage+"\nStories: "+stories+"\nNumber of classrooms: "+numOfClassRooms+"\nGrade Level: "+gradeLev);
-        }
+    School() {
+        numOfClassRooms = -1;
+        gradeLev = "Default";
+    }
+
+    void assign() {
+        super.assign();
+        System.out.print("Enter number of class rooms ");
+        numOfClassRooms = sc.nextInt();
+        String dump = sc.nextLine();
+        System.out.print("Enter grade level ");
+        gradeLev = sc.next();
+    }
+
+    void display() {
+        super.display();
+        System.out.println("Number of classrooms: "+numOfClassRooms+"\nGrade Level: "+gradeLev);
     }
 }
 
@@ -82,14 +82,12 @@ public class Q2BuildingHouseSchool {
             b.display();
         }
         if (input == 2) {
-            Building.House h =  b.new House();
-            b.assign();
+            House h =  new House();
             h.assign();
             h.display();
         }
         if (input == 3) {
-            Building.School s = b.new School();
-            b.assign();
+            School s = new School();
             s.assign();
             s.display();
         }
