@@ -19,6 +19,6 @@ module MUX4to1(w,s,f);
     reg f;
 
     always @(w or s)
-    f = s[0] ? ( s[1] ? w[3] : w[2] ) : ( s[1] ? w[1] : w[0]);
+    f = s[0] ? ( s[1] ? w[3] : w[1] ) : ( s[1] ? w[2] : w[0]);
 
 endmodule

@@ -1,26 +1,21 @@
 module q1b(a,b,c,d,f);
     input a,b,c,d;
     output f;
-
+    wire [3:0] t;
     wire [1:0] h;
     assign h = {a,b};
-
-    MUX4to1 stage0(h,c,d,f);
+    assign t = {1'b0, 1'b0, d, ~d | c};
+    MUX4to1 stage0(t,h,f);
 
 endmodule
 
-module MUX4to1(s,c,d,f);
+module MUX4to1(w,s,f);
+    input [3:0] w;
     input [1:0] s;
-    input c,d;
-    output reg f;
+    output f;
+    reg f;
 
-    always @(s,c,d)
-
-    case (s)
-        0: f = ~d | c;
-        1: f = d;
-        2: f = 0;
-        3: f = 0;
-    endcase
+    always @(w or s)
+    f = s[0] ? ( s[1] ? w[3] : w[1] ) : ( s[1] ? w[2] : w[0]);
 
 endmodule

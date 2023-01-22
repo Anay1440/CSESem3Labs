@@ -1,5 +1,5 @@
 $date
-	Mon Oct 17 14:12:11 2022
+	Sun Jan 22 14:19:03 2023
 $end
 $version
 	Icarus Verilog
@@ -18,12 +18,12 @@ $var wire 1 " a $end
 $var wire 1 # b $end
 $var wire 1 $ c $end
 $var wire 1 % d $end
-$var wire 2 & h [1:0] $end
+$var wire 4 & t [3:0] $end
+$var wire 2 ' h [1:0] $end
 $var wire 1 ! f $end
 $scope module stage0 $end
-$var wire 1 $ c $end
-$var wire 1 % d $end
-$var wire 2 ' s [1:0] $end
+$var wire 2 ( s [1:0] $end
+$var wire 4 ) w [3:0] $end
 $var reg 1 ! f $end
 $upscope $end
 $upscope $end
@@ -31,8 +31,10 @@ $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+b1 )
+b0 (
 b0 '
-b0 &
+b1 &
 0%
 0$
 0#
@@ -41,56 +43,86 @@ b0 &
 $end
 #20
 0!
+b10 &
+b10 )
 1%
 #40
 1!
+b1 &
+b1 )
 0%
 1$
 #60
+b11 &
+b11 )
 1%
 #80
 0!
+b1 &
+b1 )
 0%
 0$
-b1 &
 b1 '
+b1 (
 1#
 #100
 1!
+b10 &
+b10 )
 1%
 #120
 0!
+b1 &
+b1 )
 0%
 1$
 #140
 1!
+b11 &
+b11 )
 1%
 #160
 0!
+b1 &
+b1 )
 0%
 0$
 0#
-b10 &
 b10 '
+b10 (
 1"
 #180
+b10 &
+b10 )
 1%
 #200
+b1 &
+b1 )
 0%
 1$
 #220
+b11 &
+b11 )
 1%
 #240
+b1 &
+b1 )
 0%
 0$
-b11 &
 b11 '
+b11 (
 1#
 #260
+b10 &
+b10 )
 1%
 #280
+b1 &
+b1 )
 0%
 1$
 #300
+b11 &
+b11 )
 1%
 #320

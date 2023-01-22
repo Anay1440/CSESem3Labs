@@ -1,0 +1,69 @@
+$date
+	Sun Jan 22 14:09:42 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module MUX4To1_tb $end
+$var wire 1 ! f $end
+$var reg 2 " s [1:0] $end
+$var reg 4 # w [3:0] $end
+$scope module MUX $end
+$var wire 2 $ s [1:0] $end
+$var wire 4 % w [3:0] $end
+$var wire 1 & t2 $end
+$var wire 1 ' t1 $end
+$var wire 1 ! f $end
+$scope function MUX2To1 $end
+$var reg 1 ( MUX2To1 $end
+$var reg 1 ) s $end
+$var reg 2 * w [1:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1 *
+0)
+1(
+1'
+0&
+b1 %
+b0 $
+b1 #
+b0 "
+1!
+$end
+#20
+0(
+1)
+b0 *
+b1 "
+b1 $
+b10 #
+b10 %
+#40
+0'
+1&
+1(
+1)
+b10 *
+b10 "
+b10 $
+b100 #
+b100 %
+#60
+0&
+1(
+0)
+b1 *
+1'
+b1 "
+b1 $
+b110 #
+b110 %
+#80

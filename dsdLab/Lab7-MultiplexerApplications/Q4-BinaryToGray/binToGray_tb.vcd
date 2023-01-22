@@ -1,0 +1,81 @@
+$date
+	Sun Jan 22 14:28:20 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module binToGray_tb $end
+$var wire 4 ! g [3:0] $end
+$var reg 4 " b [3:0] $end
+$scope module gtb $end
+$var wire 4 # b [3:0] $end
+$var wire 1 $ t $end
+$var wire 4 % g [3:0] $end
+$scope module stage0 $end
+$var wire 2 & s [1:0] $end
+$var wire 4 ' w [3:0] $end
+$var reg 1 ( f $end
+$upscope $end
+$scope module stage1 $end
+$var wire 2 ) s [1:0] $end
+$var wire 4 * w [3:0] $end
+$var reg 1 + f $end
+$upscope $end
+$scope module stage2 $end
+$var wire 2 , s [1:0] $end
+$var wire 4 - w [3:0] $end
+$var reg 1 . f $end
+$upscope $end
+$scope module stage3 $end
+$var wire 2 / s [1:0] $end
+$var wire 4 0 w [3:0] $end
+$var reg 1 1 f $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+11
+b1111 0
+b1 /
+1.
+b1010 -
+b1 ,
+1+
+b110 *
+b1 )
+0(
+b1100 '
+b1 &
+b111 %
+1$
+b101 #
+b101 "
+b111 !
+$end
+#20
+b101 !
+b101 %
+0.
+b101 -
+b110 "
+b110 #
+#40
+01
+b0 0
+0$
+1(
+b1110 !
+b1110 %
+1.
+b10 &
+b10 )
+b10 ,
+b10 /
+b1011 "
+b1011 #
+#60
