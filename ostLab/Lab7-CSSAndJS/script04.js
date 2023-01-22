@@ -11,19 +11,14 @@ var radius = 20;
 
 function render() {
     requestAnimationFrame(render);
- 
-        // It clears the specified pixels within
-        // the given rectangle
+
         context.clearRect(0, 0, canvasWidth, canvasHeight);
  
-        // Creating a circle
         context.beginPath();
         context.strokeStyle = "white";
         context.arc(x, y, radius, 0, Math.PI * 2, false);
         context.stroke();
  
-        // Conditions so that the ball bounces
-        // from the edges
         if ((radius + x > canvasWidth) || (x - radius <= 0))
             vx = -vx;
  

@@ -17,7 +17,6 @@ function render() {
         requestAnimationFrame(render);
     },35);
 
-    // requestAnimationFrame(render);
 }
 
 requestAnimationFrame(render);

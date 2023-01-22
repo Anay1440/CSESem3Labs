@@ -1,3 +1,22 @@
+function curTime() {
+    const date = new Date();
+    var hrs = date.getHours();
+    var mins = date.getMinutes();
+    var sec = date.getSeconds();
+
+    const time = hrs + " : " + mins + " : " + sec;
+
+    var inText = "CLOCK\n\n" 
+
+    document.getElementById("clock").innerText = inText+time;
+
+    const t = setTimeout(function() {
+        curTime()
+    },500);
+}
+
+curTime()
+
 function dialog1() {
     const date = new Date();
     var mins = date.getMinutes();
@@ -18,3 +37,10 @@ function dialog1() {
 }
 
 dialog1();
+
+
+
+
+
+
+

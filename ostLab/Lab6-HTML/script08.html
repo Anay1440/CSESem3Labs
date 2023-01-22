@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSTL6Q8</title>
+</head>
+<body style="background-color: #383b3b; color: white;">
+    <canvas id="myCanvas" width="auto" height="auto" style="border:1px solid #ee7e7e; color: azure;"></canvas>
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(100, 100);
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+    </script>
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+
+        var grad = ctx.createRadialGradient(20, 10, 10, 80, 50, 100);
+        grad.addColorStop(0, "blue");
+        grad.addColorStop(1, "white");
+
+        ctx.beginPath();
+        ctx.arc(120, 50, 40, 0, 2 * Math.PI);
+        ctx.strokeStyle = 'cyan'
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.stroke();
+
+    </script>
+    <script>
+        // arc
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(50, 80, 10, 60, 2 * Math.PI);
+        ctx.lineWidth = 5;
+        ctx.stroke();
+    </script>
+    <script>
+        var c = document.getElementById('myCanvas');
+        var ctx = c.getContext("2d");
+        ctx.moveTo(100, 100);
+
+        var grad = ctx.createLinearGradient(10, 30, 300, 0);
+        grad.addColorStop(0, "blue");
+        grad.addColorStop(1, "white");
+
+        ctx.fillStyle = grad;
+        ctx.fillRect(100, 100, 160, 40);
+    </script>
+</body>
+</html>
