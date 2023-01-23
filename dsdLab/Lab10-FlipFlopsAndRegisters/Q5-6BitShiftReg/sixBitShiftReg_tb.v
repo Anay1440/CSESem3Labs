@@ -12,12 +12,12 @@ initial
 begin
     $dumpfile("sixBitShiftReg_tb.vcd");
     $dumpvars(0,sixBitShiftReg_tb);
-    clk = 1;
-    #200 $finish;
+    clk = 0;
+    #280 $finish;
 end
 initial
 begin
-    inp = 1; #30;
+    inp = 1; #15;
     inp = 0; #20;
     inp = 1; #20;
     inp = 1; #20;

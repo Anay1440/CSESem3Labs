@@ -10,7 +10,7 @@ module sixteenTo4PrioEncoder(w,y,z);
             z = 0;
         else
         begin
-            for(k = 15; k >= 0; k = k - 1)
+            for(k = 0; k <= 15; k = k + 1)
             begin
                 if (w[k] == 1)
                     y = k;

@@ -12,8 +12,8 @@ begin
     $dumpfile("sixteenTo4PrioEncoder_tb.vcd");
     $dumpvars(0,sixteenTo4PrioEncoder_tb);
 
-    w = 16'b0000000000000001; #20;
-    w = 16'b1000000000000000; #20;
+    w = 16'b0000000000000011; #20;
+    w = 16'b1010000000000000; #20;
     w = 16'b0000000000000100; #20;
     w = 16'b0010000000000000; #20;
 
